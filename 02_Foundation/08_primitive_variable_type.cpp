@@ -13,3 +13,11 @@ int main()
     cout<<"Double d: "<<d<<endl;
     cout<<"String s: "<<s<<endl;
 }
+
+/*
+O/P:
+Int a: 5
+Float f: 9.5f
+Double d: 9.67
+String s: Hello
+*/
