@@ -1,5 +1,4 @@
 /*
-
 In the previous exercises, you stored and printed the board as a vector<vector<int>>,
 where only two states were used for each cell: 0 and 1. This is a great way to get started,
 but as the program becomes more complicated, there will be more than two possible states for each cell.
@@ -9,13 +8,11 @@ just as the board is printed above.
 To do this clearly in your code, you will learn about and use something called an enum.
 An enum, short for enumerator, is a way to define a type in C++ with values that are restricted to a fixed range.
 For an explanation and examples, see the notebook below.
-
 */
 
 
 #include <iostream>
 using std::cout;
-
 
 /*
 Enums
