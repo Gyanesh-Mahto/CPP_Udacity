@@ -1,0 +1,61 @@
+Pointers
+Description
+In C++ pointers are primitive data type for store, manipulation and initialization of memory and 
+memory addresses. It is been assigned a special character * (asterisk), typically called 
+dereference operator.
+General usage of pointers in C++ is typically:
+
+data_type *variable_name;
+// such as:
+int *pointer;
+Using specifier for data type we are constraining pointer for specific usage during its life as 
+variable. It can point to addresses of that type or to casted addresses from different types, but 
+primitively it can show to its declared type. Pointer in C++ has other main difference which makes 
+it unique when compared with other variables. It holds two information: pointer value and pointer 
+address. Every piece of data is stored on the computer as variable. Every variable that is 
+created in a program gets assigned some location within the computer's memory. Variable values 
+are stored in their assigned locations. The & ("ampersend") reference operator is used in C++ to 
+get the information of where data is stored. It allows you to attain the address of a memory 
+location that is occupied by some variable.
+
+ int val = 5;
+ std::cout << val; // variable value (5)
+ std::cout << &val 
+ // variable address (hexadecimal format)
+// example: 0x12C
+// Pointer is initialized to allocated space in memory which
+// cointaints int value of 5
+int *pointer = new int(5);
+
+// if we use pointer like this:
+// we are printing its address, hexadecimal format
+std::cout << pointer << std::endl;
+// if we use pointer like this:
+// we are printing its value, so called, dereference of
+// pointer, hexadecimal format
+std::cout << *pointer << std::endl;
+It is crucial to understand two categories of information which are important for memory related 
+actions. We are typically dealing with memory address and memory value on that address. In this 
+process we are always encouraged to pay attention with our referencing, and complementary 
+dereferencing. Example:
+
+int val = 5;
+int *ptr = NULL;
+// error! ptr is address of place in memory where this
+// pointer is pointing
+// val is integer variable
+ptr=val;
+// error! *ptr is the value pointed by
+// pointer ( dereferenced pointer)
+// whereas, &val is an address of variable val.
+*pc=&val;
+
+// correct ways:
+ptr = &val;
+// now pointer is pointing to variable val, and contains
+// value 5 on pointed memory address 
+pc=&c; 
+// *ptr is the value on address pointed by same ptr pointer /// and, c is also a value from 
+memory address occupied by
+// variable val.
+*pc=c;
