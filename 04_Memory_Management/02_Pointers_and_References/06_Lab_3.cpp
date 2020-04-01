@@ -113,3 +113,29 @@ int main()
     }
     }
 }
+/*
+O/P:
+Please enter the size:
+5
+Enter the elements in Array:
+1
+2
+3
+4
+5
+Total size of this Array: 5
+Contents of Array:
+1 2 3 4 5
+Do you want to resize your Array:
+y
+Please enter by how much size the Array should be expanded:
+2
+Enter the new 2 contents in Array:
+6
+7
+Updated contents of Array:
+1 2 3 4 5 6 7
+Do you want to resize your Array:
+n
+Ok!!! Exiting Program
+*/
