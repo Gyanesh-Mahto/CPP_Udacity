@@ -30,32 +30,39 @@ class BankAccount
     int funds;
     
     public:
-    void SetAccountNumber(int a)
+    void SetAccountNumber(int a);
+    void SetOwnerName(string s);
+    void SetFunds(int f);
+    int GetAccountNumber() const;
+    string GetOwnerName() const;
+    int GetFunds() const;
+};
+
+void BankAccount:: SetAccountNumber(int a)
     {
         account_number=a;
         
     }
-    void SetOwnerName(string s)
+void BankAccount:: SetOwnerName(string s)
     {
         owner_name=s;
     }
-    void SetFunds(int f)
+void BankAccount:: SetFunds(int f)
     {
         funds=f;
     }
-    int GetAccountNumber() const
+int BankAccount:: GetAccountNumber() const
     {
         return account_number;
     }
-    string GetOwnerName() const
+string BankAccount:: GetOwnerName() const
     {
         return owner_name;
     }
-    int GetFunds() const
+int BankAccount:: GetFunds() const
     {
         return funds;
     }
-};
 
 int main()
 {
