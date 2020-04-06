@@ -1,0 +1,15 @@
+1. Class Constructor
+
+Q. The constructor function of a class is a special member function that defines any input parameters or logic that must be included upon instantiation of 
+a class. From what you've seen so far is it required to define a constructor in C++ classes?
+-->No, if undefined C++ will define a default constructor
+
+2. Access Modifiers
+
+Q. What are the three options for access modifiers in C++?
+-->Public (access to anyone), Private (access only within the class) and Permitted (access in friend classes)
+
+3. Setters and Getters
+
+Q. Why does it make sense to specify private member variables with accessor and mutator functions, instead of public member variables?
+-->Often times you want to limit the user's access to class member variables, possibly because of an invariant.
