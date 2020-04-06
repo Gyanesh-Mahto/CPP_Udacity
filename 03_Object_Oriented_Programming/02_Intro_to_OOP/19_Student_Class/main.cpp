@@ -94,3 +94,10 @@ int main()
     
     cout<<"Name: "<<s1.GetName()<<endl<<"Grade: "<<s1.GetGrade()<<endl<<"GPA: "<<s1.GetGPA()<<endl;
 }
+
+/*
+O/P:
+Name: Xinhua
+Grade: 11
+GPA: 3.3
+*/
