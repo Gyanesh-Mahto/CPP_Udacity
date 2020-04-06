@@ -1,0 +1,11 @@
+Encapsulation Definition:
+In the context of object oriented programming, encapsulation refers to:
+-->The notion that data and logic can be packaged together and passed around within a program as a single object.
+
+Keyword const:
+Invoking the const keyword in an accessor function allows you to:
+-->Ensure the user cannot do anything to change the private attributes of the object.
+
+Setter function:
+Making class attributes private and assigning them with a mutator function allows you to:
+-->Invoke logic that checks whether the input data are valid before setting attributes.
