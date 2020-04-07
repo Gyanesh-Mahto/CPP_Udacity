@@ -25,21 +25,27 @@ class Sphere
 
     public:
     Sphere(float r);
-    float GetRadius();
-    float GetVolume();
+    float GetRadius() const;
+    float GetVolume() const;
 };
 
 Sphere ::Sphere(float r)
     {
+        if(r>=0)
         radius_=r;
+        else
+        {
+        cout<<"Invalid Radius"<<endl;
+        exit(1);
+        }
     }
 
-float Sphere :: GetRadius()
+float Sphere :: GetRadius() const
     {
         return radius_;
     }
 
-float Sphere :: GetVolume()
+float Sphere :: GetVolume() const
     {
         float volume;
         volume=3.142*4/3*radius_*radius_*radius_;
