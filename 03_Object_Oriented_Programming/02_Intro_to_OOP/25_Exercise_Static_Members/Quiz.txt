@@ -1,0 +1,11 @@
+Static Members
+Class members can be declared static, which means that the member belongs to the entire class, instead of to a specific instance of the class. 
+More specifically, a static member is created only once and then shared by all instances (i.e. objects) of the class. That means that if the static 
+member gets changed, either by a user of the class or within a member function of the class itself, then all members of the class will see that change 
+the next time they access the static member.
+
+A second static counter
+Imagine you have a class Sphere with a static int counter member. Sphere increments counter in the constructor and uses this to track how many Spheres 
+have been created. What would happen if you instantiated a new classes (Cube, for instance) that also had a static int counter? Would the two counters 
+conflict?
+--->No, because the new static attribute counter is defined within the Cube class, it has nothing to do with Sphere::counter.
