@@ -112,9 +112,6 @@ int main()
     particle.Move(10, PI/9);
     bicycle.Move(10, PI/9);
 
-    //各自走自己的Move, 即便輸入一樣, 當衍伸class 出現一樣的function name 時, overwrite base class 的
-    //雖然x,y,theta 定義在base class, 但 宣告 derived class object 時, dervied class 的 xytheta 是不同份
-    //所以每個object 有自己的 x,y,theta
     assert(particle.x != bicycle.x);
     assert(particle.y != bicycle.y);
     assert(particle.theta != bicycle.theta);
