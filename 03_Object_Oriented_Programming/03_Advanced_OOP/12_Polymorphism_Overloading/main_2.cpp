@@ -40,31 +40,33 @@ Instructions:
     4.Pass the tests in main() by verifying that the two Move() functions override each other in different scenarios.
 
 */
-
 #include <assert.h>
 #include <cmath>
 #include <iostream>
+using namespace std;
+
 // TODO: Define PI
 #define PI 3.1415926
 // TODO: Define ParticleModel
 
-class ParticleModel{
+class ParticleModel
+{
     // TODO: Define the Move() function for ParticleModel
-public:
-    void Move(double v, double phi){
+    public:
+    void Move(double v, double phi)
+    {
         theta += phi;
         x += v * cos(theta);
         y += v * cos(theta);
-        std::cout <<"Move in ParticleModel"<<std::endl;
-
+        cout <<"Move in ParticleModel"<<endl;
     }
 
-    void get_info(){
-        std::cout<< x<< ",add:"<< &x << std::endl;
-        std::cout<< y<< ",add:"<< &y << std::endl;
-        std::cout<< theta<< ",add:"<< &theta << std::endl;
-        std::cout <<"get_info in ParticleModel"<<std::endl;
-
+    void get_info()
+    {
+        cout<< x<< ",add:"<< &x << endl;
+        cout<< y<< ",add:"<< &y << endl;
+        cout<< theta<< ",add:"<< &theta << endl;
+        cout <<"get_info in ParticleModel"<<endl;
     }
 
 //private:
@@ -76,29 +78,28 @@ public:
 
 };
 // TODO: Inherit BicycleModel from ParticleModel
-class BicycleModel : public ParticleModel{
+class BicycleModel : public ParticleModel
+{
     // TODO: Define the move() function for BicycleModel
-public:
-    void Move(double v, double phi){
+    public:
+    void Move(double v, double phi)
+    {
         theta += v / L * tan(phi);
         x += v * cos(theta);
         y += v * cos(theta);
-        std::cout <<"Move in BicycleModel"<<std::endl;
+        cout <<"Move in BicycleModel"<<endl;
     }
 
-        void get_info(){
-            std::cout<< x<< ",add:"<< &x << std::endl;
-            std::cout<< y<< ",add:"<< &y << std::endl;
-            std::cout<< theta<< ",add:"<< &theta << std::endl;
-            std::cout <<"get_info in BicycleModel"<<std::endl;
-
-        }
-private:
+    void get_info()
+    {
+        cout<< x<< ",add:"<< &x << endl;
+        cout<< y<< ",add:"<< &y << endl;
+        cout<< theta<< ",add:"<< &theta << endl;
+        cout <<"get_info in BicycleModel"<<endl;
+    }
+    private:
     //the length of the vehicle
     double L = 1;
-
-
-
 };
 // TODO: Pass the tests
 int main()
@@ -115,7 +116,6 @@ int main()
     assert(particle.x != bicycle.x);
     assert(particle.y != bicycle.y);
     assert(particle.theta != bicycle.theta);
-
 
     particle.get_info();
     bicycle.get_info();
