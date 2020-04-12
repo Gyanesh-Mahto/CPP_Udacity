@@ -23,6 +23,10 @@ Virtual functions can be defined by derived classes, but this is not required. H
 we are declaring the function to be a pure virtual function. This means that the base class does not define this function. A derived class must define 
 this function, or else the derived class will be abstract.
 
+"Overriding" a function occurs when a derived class defines the implementation of a virtual function that it inherits from a base class.
+
+It is possible, but not required, to specify a function declaration as override.
+
 Instructions
 Create base class called Shape.
 Define pure virtual functions (= 0) for the base class.
@@ -30,7 +34,6 @@ Write the derived classes.
 Inherit from class Shape.
 Override the pure virtual functions from the base class.
 Test in main()
-
 */
 #include<iostream>
 #include<cmath>
