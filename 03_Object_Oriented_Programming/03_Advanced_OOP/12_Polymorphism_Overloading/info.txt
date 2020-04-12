@@ -1,0 +1,36 @@
+Polymorphism: Overriding
+-------------------------
+The second type of polymorphism is function overriding.
+
+"Overriding" a function occurs when multiple definitions of a function have the same signature (same name and same arguments).
+In practice, each of the function definitions should have a different function definition (i.e. implementation).
+That's not strictly required, but there's really no benefit to function overriding if the same
+function signature leads to the same function definition.
+
+Each time that function signature is called, one definition of the function will override the others.
+Which version overrides the others may change based on context.
+
+A base class declares a [virtual function](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#glossary function).
+A derived class overrides that virtual function by defining its own implementation with an identical function signature (i.e. the same function name and argument 
+types).
+
+When a member function is defined in both a base class and a derived class, the definition in the derived
+class overrides the definition in the base class.
+
+class Animal {
+public:
+  virtual std::string Talk() const;
+};
+
+class Cat {
+public:
+  std::string Talk() const { return std::string("Meow"); }
+};
+
+In this example, Animal exposes a virtual function: Talk(), but does not define it. Because Animal::Talk() is undefined, it is called a pure virtual 
+function, as opposed to an ordinary (impure? 😉) virtual function.
+
+Furthermore, because Animal contains a pure virtual function, the user cannot instantiate an object of type Animal. This makes Animal an abstract class.
+
+Cat, however, inherits from Animal and overrides Animal::Talk() with Cat::Talk(), which is defined. Therefore, it is possible to instantiate an object 
+of type Cat.
