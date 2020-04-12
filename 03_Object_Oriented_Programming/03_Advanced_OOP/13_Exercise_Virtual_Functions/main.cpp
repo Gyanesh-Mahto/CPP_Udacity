@@ -33,7 +33,9 @@ Test in main()
 
 */
 #include<iostream>
+#include<cmath>
 using namespace std;
+#define PI 3.14159
 
 class Shape
 {
@@ -58,24 +60,59 @@ class Rectangle : public Shape
         if(w>=0)
         width=w;
     }
-    virtual double Area() const
+    virtual double Area() const override
     {
         return length*width;
     }
-    virtual double Perimeter() const
+    virtual double Perimeter() const override
     {
         return (2*(length+width));
     }
 };
 
+class Circle : public Shape 
+{
+    private:
+    double radius_;
+public:
+  Circle(double radius) : radius_(radius) {}
+  double Area() const override 
+  { 
+      return pow(radius_, 2) * PI;  // specified as an override function
+  }
+  double Perimeter() const override 
+  { 
+      return 2 * radius_ * PI;  // specified as an override function
+  }
+};
 int main()
 {
-    Rectangle R1(20,5);
-    cout<<"Area: "<<R1.Area()<<endl;
-    cout<<"Perimeter: "<<R1.Perimeter()<<endl;
+    int len, wid;
+    cout<<"Enter length: "<<endl;
+    cin>>len;
+    cout<<"Enter Width: "<<endl;
+    cin>>wid;
+    Rectangle R1(len,wid);
+    cout<<"Rectangle's Area: "<<R1.Area()<<endl;
+    cout<<"Rectangle's Perimeter: "<<R1.Perimeter()<<endl;
+
+    int rad;
+    cout<<"Enter Radius: "<<endl;
+    cin>>rad;
+    Circle c1(rad);
+    cout<<"Circle's Area: "<<c1.Area()<<endl;
+    cout<<"Circle's Perimeter: "<<c1.Perimeter()<<endl;
 }
 /*
 O/P:
-Area: 100
-Perimeter: 50
+Enter length:
+5
+Enter Width:
+5
+Rectangle's Area: 25
+Rectangle's Perimeter: 20
+Enter Radius:
+5
+Circle's Area: 78.5397
+Circle's Perimeter: 31.4159
 */
