@@ -27,7 +27,7 @@ class ProcessParser
     static vector<string> getPidList();
     static string getVmSize(string pid);
     static string getCpuPercent(string pid);
-    static long int getSysupTime();
+    static long int getSysUpTime();
     static string getProcUpTime(string pid);
     static string getProcUser(string pid);
     static vector<string> getSysCpuPercent(string coreNumber="");
