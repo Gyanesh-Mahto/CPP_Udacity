@@ -36,6 +36,7 @@ class ProcessParser
     static int getTotalThreads();
     static int getTotalNumberOfProcesses();
     static int getNumberOfRunningProcesses();
+    static int getNumberOfCores();
     static string getOsName();
     static string printCpuStats(vector<string> values1, vector<string> values2);
 };
@@ -182,4 +183,22 @@ string ProcessParser::getCmd(string pid)
     ifstream stream = Util::getStream((Path::basePath() + pid + Path::cmdPath()));
     getline(stream, line);
     return line;
+}
+
+int ProcessParser::getNumberOfCores()
+{
+    string line;
+    string name="cpu cores";
+    ifstream stream=Util::getStream((Path::basePath()+ "cpuinfo"));
+    while(getline(stream, line))
+    {
+        if(line.compare(0, name.size(), name)==0)
+        {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf), end;
+            vector<string> values(beg, end);
+            return stoi(values[3]);
+        }
+    }
+    return 0; 
 }
