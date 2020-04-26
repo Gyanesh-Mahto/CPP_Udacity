@@ -42,6 +42,11 @@ class Path
     {
         return "uptime";
     }
+    
+    static string memInfoPath()
+    {
+        return "meminfo";
+    }
 
     static string versionPath()
     {
