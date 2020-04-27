@@ -256,3 +256,47 @@ We use a formula to calculate overall activity of processor.
     return to_string(result);
 }
 
+float ProcessParser::getSysRamPercent()
+{
+    string line;
+    string name1="MemAvailable";
+    string name2="MemFree";
+    string name3="Buffers";
+
+    string value;
+    int result;
+    ifstream stream=Util::getStream((Path::basePath() + Path::memInfoPath()));
+    float total_mem=0;
+    float free_mem=0;
+    float buffers=0;
+    while(getline(stream, line))
+    {
+        if(total_mem!=0 && free_mem!=0)
+        {
+            break;
+        }
+        if(line.compare(0, name1.size(), name1)==0)
+        {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf), end;
+            vector<string> values(beg,end);
+            total_mem=stof(values[1]);
+        }
+        if(line.compare(0, name2.size(), name2)==0)
+        {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf),end;
+            vector<string> values(beg,end);
+            free_mem=stof(values[1]);
+        }
+        if(line.compare(0,name3.size(),name3)==0)
+        {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf),end;
+            vector<string> values(beg,end);
+            buffers=stof(values[1]);
+        }
+    }
+    //calculating usage:
+    return float(100.0*(1-(free_mem/(total_mem-buffers))));
+}
