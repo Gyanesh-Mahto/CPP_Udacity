@@ -318,3 +318,87 @@ string ProcessParser::getSysKernelVersion()
     }
     return "";
 }
+
+string ProcessParser::getOsName()
+{
+    string line;
+    string name="PRETTY_NAME=";
+    ifstream stream=Util::getStream(("/etc/os-release"));
+    while(getline(stream, line))
+    {
+        if(line.compare(0, name.size(), name)==0)
+        {
+            size_t found=line.find("=");
+            found++;
+            string result = line.substr(found);
+            result.erase(std::remove(result.begin(), result.end(), '"'), result.end());
+            return result;
+        }
+    }
+    return "";
+}
+
+int ProcessParser::getTotalThreads()
+{
+    string line;
+    int result=0;
+    string name="Threads:";
+    vector<string> _list=ProcessParser::getPidList();
+    for(int i=0; i<_list.size(); i++)
+    {
+        string pid=_list[i];
+        //getting every process and reading their number of their threads
+        ifstream stream=Util::getStream((Path::basePath() + pid + Path::statusPath()));
+        while(getline(stream, line))
+        {
+            if(line.compare(0, name.size(), name)==0)
+            {
+                istringstream buf(line);
+                istream_iterator<string>beg(buf),end;
+                vector<string> values(beg,end);
+                result=result+stoi(values[1]);
+                break;
+            }
+        }
+    }
+    return result;
+}
+int ProcessParser::getTotalNumberOfProcesses()
+{
+    string line;
+    int result=0;
+    string name="processes";
+    ifstream stream=Util::getStream((Path::basePath()+Path::statPath()));
+    while(getline(stream,line))
+    {
+        if(line.compare(0, name.size(),name)==0)
+        {
+        istringstream buf(line);
+        istream_iterator<string>beg(buf),end;
+        vector<string> values(beg,end);
+        result=result+stoi(values[1]);
+        break;
+        }
+    }
+    return result;
+}
+
+int ProcessParser::getNumberOfRunningProcesses()
+{
+    string line;
+    int result=0;
+    string name="procs_running";
+    ifstream stream=Util::getStream((Path::basePath()+Path::statPath()));
+    while(getline(stream,line))
+    {
+        if(line.compare(0, name.size(), name)==0)
+        {
+            istringstream buf(line);
+            istream_iterator<string> beg(buf),end;
+            vector<string> values(beg,end);
+            result=result+stoi(values[1]);
+            break;
+        }
+    }
+    return result;
+}
