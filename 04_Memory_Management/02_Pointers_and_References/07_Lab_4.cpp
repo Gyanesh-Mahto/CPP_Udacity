@@ -56,12 +56,10 @@ class Node  //Declare struct Node to represent the nodes in the list
         prev=prev_Node;
         next=next_Node;
     }
-    Node()
-    {}
 
 };
 
-class List: public Node  //Declare class List to represent the doubly linked list
+class List //Declare class List to represent the doubly linked list
 {
   private:
   Node* head;  //Declare a member variable head that belongs to class List and points to the first node in the list
@@ -194,3 +192,12 @@ int main()
  cout<<"First Element poped: "<<List2.pop_front()<<endl;
  cout<<"Last Element popped: "<<List2.pop_back()<<endl;
 }
+
+/*
+Size of List1: 3
+First Element poped: 19
+Last Element popped: 5
+Size of List2: 3
+First Element poped: 2
+Last Element popped: 9
+*/
