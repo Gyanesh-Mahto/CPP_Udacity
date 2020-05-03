@@ -18,7 +18,7 @@ Steps
     9. First constructor paremeter is going to be pointer and second which is not required, is 
     going to be size of eventual array in memory
     10. We need to construct logic of the constructor which will set isArray attribute if size is larger then 0
-    11. Create overload operator == which will be used for comparison between to PtrDetails object 
+    11. Create overload operator == which will be used for comparison between two PtrDetails object 
     in lists. It is mandatory
 
 */
@@ -52,8 +52,4 @@ bool operator==(const PtrDetails<T> &obj1, const PtrDetails<T> &obj2)
     return true;
     else
     return false;
-}
-int main()
-{
-
 }
