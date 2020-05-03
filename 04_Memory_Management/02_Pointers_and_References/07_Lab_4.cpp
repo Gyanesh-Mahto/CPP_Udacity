@@ -194,6 +194,7 @@ int main()
 }
 
 /*
+O/P:
 Size of List1: 3
 First Element poped: 19
 Last Element popped: 5
