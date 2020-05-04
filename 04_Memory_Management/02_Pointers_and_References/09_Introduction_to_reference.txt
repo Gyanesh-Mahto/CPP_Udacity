@@ -1,0 +1,59 @@
+Reference Operator
+------------------
+Description
+Using references in C++ is technique of acquiring memory location (address) from specific data 
+types. A reference to a variable can be declared by using &(ampersend) operator. We can use 
+reference like this:
+
+    // Declaring int variable with value of 10
+    int var = 10;
+    // Declaring reference to integer variable var
+    int& ref = var;
+    // Printing value of var:
+    std::cout<<var<<std::endl;
+    // incrementing ref by 10:
+    ref += 10;
+    // printing reference value:
+    std::cout<<ref<<std::endl;
+    // Again printing var value:
+    std::cout<<var<<std::endl;
+    /* OUTPUT:
+        10
+        20
+        20
+    */
+In this example of usage of references we can see that reference are closely tied to given 
+variable. When declare a reference to specific data in C++, we are inheriting all related data 
+for that specific varible. So, besides the basic value of that data, we are inheriting 
+information about memory location of that specific value. Having that in mind, when we perfom any 
+data manipulation of our created refence, we are affecting our initial variable. Explanation of 
+that behaviour comes from a fact that reference is just a representation of a variable upon which 
+we declared our reference. 
+In specific point of view, we can imagine references as primitive pointers, because they also 
+carry information about data memory location. Besides that, reference is also a operator, which 
+can be used for operation of referencing. Referencing data in C++ states that we are requesting 
+memory location of wanted data.
+
+int var = 10;
+// we are requesting value of variable var:
+std::cout<<var<<std::endl;
+// 10
+// we are requesting memory address of variable var:
+std::cout<<&var<<std::endl;
+// e.g. => 0x7ffe318d531c
+Some of the typical deficiencies of references in compare with pointers are:
+
+1. When reference is created it cannot be re - initialized
+
+2. References cannot be initialized to NULL value, which is often used to indicate that pointers 
+aren't showing to any memory location
+
+3. A reference must be initialized with valid data - meaning that they are only declared when 
+they have valid memory address to reference
+
+Besides these facts, references are much more efficient for usage in C++, because they are 
+preventing memory leakage, they are safer from a point of memory management and they are easier 
+to use. 
+Reference are popular as input and return values in functions. With this technique, we are 
+preventing copying of our data from one part of program to another and we are certain that any 
+changes in a function will affect our original data.
