@@ -33,3 +33,132 @@ Steps 3
     Class destructor deletes root pointer
     Test everything in main
 */
+#include<iostream>
+using namespace std;
+
+class Binary_Tree
+{
+    struct Node
+    {
+        int data;
+        Node* left;
+        Node* right;
+
+        Node(int d, Node* l=nullptr, Node* r=nullptr)
+        {
+            data=d;
+            left=l;
+            right=r;
+        }
+
+        ~Node()
+        {
+            if(left!=nullptr)
+            delete left;
+            else if(right!=nullptr)
+            delete right;
+        }
+    } *root;
+    
+    void add(int data, Node* root);
+    bool search(int searchdata, Node* root);
+    
+    public:
+
+    Binary_Tree(int rootdata)
+    {
+        root=new Node(rootdata, nullptr, nullptr);
+    }
+    
+    ~Binary_Tree()
+    {
+        delete root;
+    }
+
+    void addData(int inputData)
+    {
+        add(inputData, root);
+    }
+
+    bool searchData(int inputdata)
+    {
+        search(inputdata, root);
+    }
+
+    int getroot()
+    {
+        return root->data;
+    }
+};
+
+void Binary_Tree::add(int addData, Node* rootnode) //Add needs to have logic which will be dependant from data attribute and check for its place of creation on left or right side
+{
+    if(addData>rootnode->data)
+    {
+        if(rootnode->right==nullptr)
+        {
+            rootnode->right=new Node(addData, nullptr, nullptr);
+        }
+        else
+        {
+            Binary_Tree::add(addData, rootnode->right);
+        }
+    }
+    else
+    {
+        if(rootnode->left==nullptr)
+        {
+            rootnode->left=new Node(addData, nullptr, nullptr);
+        }
+        else
+        {
+            Binary_Tree::add(addData, rootnode->left);
+        }
+    }
+    
+}
+
+bool Binary_Tree::search(int searchdata, Node* rootnode)    //Search needs to be implemented as recursive function
+{
+    if(rootnode!=nullptr && rootnode->left==nullptr && rootnode->right==nullptr)
+    {
+        if(rootnode->data==searchdata)
+        return true;
+        else
+        return false;
+    }
+
+    if(rootnode->data==searchdata)
+    return true;
+    else
+    {
+        if(searchdata > rootnode->data && rootnode->right!=nullptr)
+        {
+            search(searchdata, rootnode->right);
+        }
+        else if(searchdata < rootnode->data && rootnode->left!=nullptr)
+        {
+            search(searchdata, rootnode->left);
+        }
+        
+    }
+    
+}
+
+int main()
+{
+    Binary_Tree tree(2);    //rootNode
+    tree.addData(4);
+    tree.addData(6);
+    tree.addData(8);
+    cout<<tree.getroot()<<endl; //rootNode
+    cout<<tree.searchData(8)<<endl; //1-->True
+    cout<<tree.searchData(18)<<endl;    //0-->False
+}
+/*
+O/P:
+----
+2
+1
+0
+*/
