@@ -1,0 +1,19 @@
+Memset( )
+Prototype of memset function is:
+
+void * memset ( void * ptr, int value, size_t num );
+where ptr is memory address of memory we want to initialize, value is value which will be used to set this memory space. The value is passed as an int, however it is first converted to unsigned char and then placed by the function into the memory block. num is used to signal how many bytes we are initializing.
+Memset is usually used for initialization of values. When we take into consideration that we can use following data structure:
+
+struct Point {
+    char x;
+    char y;
+};
+And if declare instance of Point data type:
+
+Point p1;
+Then char values in this structure are going to be undefined or have some values from the last usage of that part of the stack. They are unpredictable. Having that in mind we can use memset to set default values for this data type. We need to have in mind that this concept and approach is also used because memset is significantly faster function then user defined ones. So our code could look something like this:
+
+// NOTE: we need to include <cstring> library or <string.h>
+// for usage of memset
+    memset(&p1, '-', sizeof(p1));
