@@ -1,0 +1,112 @@
+Resource Scope
+---------------
+Description:
+------------
+In general, scope can be viewed as the extent up to which some resource can be used and worked 
+with. In programming also scope of a variable is defined as the extent of the program code 
+within which the variable can we accessed or declared or worked with. A scope can be defined by 
+many ways : it can be defined by namespace, functions, classes and just { }.
+
+Global variable
+Global variables are defined outside of all the functions, usually on top of the program. The 
+global variables will hold their value throughout the life-time of your program.
+
+A global variable can be accessed by any function. That is, a global variable is available for 
+use throughout your entire program after its declaration.
+
+#include <iostream>
+// Global variable declaration:
+int glob;
+int main () {
+    glob = 10;
+    glob ++;
+    std::cout << glob << std::endl;
+    // OUTPUT: 11
+    return 0;
+}
+Local variable
+Variables that are declared inside a function or block are local variables. They can be used 
+only by statements that are inside that function or block of code. Local variables are not known 
+to functions outside their own.
+
+#include <iostream>
+
+int main () {
+   // Local variable declaration:
+   int x, y;
+   // actual initialization
+   x = 10;
+   y= 20;
+    y += x;
+    std::cout << y;
+    // OUTPUT: 30
+   return 0;
+}
+Namespaces
+Namespaces were introduced in C++, as a new feature not inherited from C. Namespaces are used 
+for definition of scopes, where we can create our on namespaces within same program, which have 
+they own scope.
+
+#include <iostream>
+
+// Variable created inside namespace
+namespace myNamespace
+{ 
+    int val = 123;
+} 
+
+// Global variable
+int val = 100;
+
+int main() {
+    // Local variable
+    int val = 200;
+
+    // These variables can be accessed from
+    // outside the namespace by using the scope
+    // operator :: -> also known as scope resolution operator
+
+    // namespace variable value
+    std::cout << myNamespace::val << std::endl;
+    // global variable value
+    std::cout << ::val << std::endl;
+    // local variable value
+    std::cout << val << std::endl;
+
+    // OUTPUT:
+    // 123
+    // 100
+    // 200
+    return 0;
+}
+Differences
+We can see that every resource scope has its function and handling using scope resolution 
+operator. If we compare our scopes in C++ we can do it via comparison in the following example.
+
+Example
+int val;
+//this variable val is defined in global namespace
+// which means, its scope is global. It exists
+// everywhere.
+
+namespace _namespace
+{
+     int val;  
+    // it is defined in a local namespace called '_namespace'
+    // outside _namespace it doesn't exist.
+}
+void _func()
+{
+   int val;  
+    // scope is the function itself.
+    // outside the function, a doesn't exist.
+   {
+        int val; //the curly braces defines this scope
+   }
+}
+class _class
+{
+   int val;  
+    // scope is the class itself.
+    // outside class _class, it doesn't exist.
+};
