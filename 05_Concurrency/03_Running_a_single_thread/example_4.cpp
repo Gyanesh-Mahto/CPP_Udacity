@@ -4,6 +4,7 @@ using namespace std;
 
 void thread_func()
 {
+    //Do some task in thread
     this_thread::sleep_for(chrono::milliseconds(50));  //Simulate work
     cout<<"Finished work 1 in thread"<<endl;
     this_thread::sleep_for(chrono::milliseconds(50));  //Simulate work
@@ -12,7 +13,10 @@ void thread_func()
 
 int main()
 {
+    //Creating thread
     thread t(thread_func);
+    
+    //Do some task in main
     this_thread::sleep_for(chrono::milliseconds(50));  //Simulate work
     cout<<"Finished work 1 in main"<<endl;
     this_thread::sleep_for(chrono::milliseconds(50));  //Simulate work
