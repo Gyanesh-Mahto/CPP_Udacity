@@ -41,7 +41,7 @@ bool operator==(const PtrDetails<T> &ob1,
                 const PtrDetails<T> &ob2)
 {
     // TODO: Implement operator==
-    if(ob1->memPtr==ob2->memPtr)
+    if(ob1.memPtr==ob2.memPtr)
     return true;
     else
     return false;
