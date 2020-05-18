@@ -17,6 +17,7 @@ int main()
 }
 
 /*
+For Linux Environment:
 -->Compile with command: g++ -std=c++11 -pthread ./example_3.cpp
 -->./a.out
 
