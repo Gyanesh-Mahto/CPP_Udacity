@@ -17,6 +17,8 @@ int main()
     cout<<"Finished work 1 in main"<<endl;
     this_thread::sleep_for(chrono::milliseconds(50));  //Simulate work
     cout<<"Finished work 2 in main"<<endl;
+
+    // wait for thread to finish
     t.join();
 }
 
