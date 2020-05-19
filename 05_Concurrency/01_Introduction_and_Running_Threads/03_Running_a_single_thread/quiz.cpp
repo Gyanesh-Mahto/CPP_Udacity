@@ -48,7 +48,7 @@ For Linux Environment:
 
 For Windows Environment:
 -->Compile with command: g++ -std=c++11 ./quiz.cpp
--->./a.out
+-->./a.exe
 
 O/P is not fixed
 Finished Task in even thread
