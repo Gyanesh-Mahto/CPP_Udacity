@@ -28,7 +28,7 @@ For Linux Environment:
 
 For Windows Environment:
 -->Compile with command: g++ -std=c++11 ./example_6.cpp
--->./a.out
+-->./a.exe
 
 O/P is not fixed
 O/P:
