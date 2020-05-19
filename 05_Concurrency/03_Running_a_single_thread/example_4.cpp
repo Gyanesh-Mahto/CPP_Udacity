@@ -28,7 +28,7 @@ int main()
 
 /*
 For Linux Environment:
--->Compile with command: g++ -std=c++11 -pthread ./example_3.cpp
+-->Compile with command: g++ -std=c++11 -pthread ./example_4.cpp
 -->./a.out
 Output is not fixed.
 O/P:
