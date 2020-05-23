@@ -21,7 +21,7 @@ int main()
         threads.push_back(t);
         */
         // moving thread objects will work
-        threads.emplace_back(thread(printHello));
+        threads.emplace_back(thread(printHello));   //emplace_back: Inserts a new element at the end of the vector, right after its current last element. This new element is constructed in place using args as the arguments for its constructor.
     }
     
     //do some task in main
