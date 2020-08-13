@@ -56,3 +56,6 @@ Hello, Human
 Hello, Dog
 Hello, Cat
 */
+/*
+function overloading uses "Name mangling" technique to differentiate between same function name with different argument.
+*/
